@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home">
+
+    <div id="startOverlay" class="start-overlay" aria-hidden="false">
+        <div class="start-card" role="dialog" aria-labelledby="startTitle">
+            <h2 id="startTitle">Welcome</h2>
+            <form id="startForm" novalidate>
+                <label for="startEmail">Email</label>
+                <input id="startEmail" name="email" type="email" autocomplete="username" required />
+
+                <label for="startPassword">Password</label>
+                <input id="startPassword" name="password" type="password" autocomplete="current-password" required />
+
+                <button type="submit" class="btn">Sign in</button>
+                <p id="startError" class="start-error" role="alert" aria-live="assertive"></p>
+            </form>
+        </div>
+    </div>
+
+    <header class="top-header" id="topHeader">
+        <div class="header-inner">
+            <nav class="top-nav" id="topNav" aria-label="Primary">
+                <a href="../index.html" class="active">Home</a>
+                <span class="separator" aria-hidden="true">|</span>
+                <a href="Anniversaries/anniversaries.html">Anniversaries</a>
+                <span class="separator" aria-hidden="true">|</span>
+                <a href="Birthdays/birthdays.html">Birthdays</a>
+                <span class="separator" aria-hidden="true">|</span>
+                <a href="Monthsaries/monthsaries.html">Monthsaries</a>
+                <span class="separator" aria-hidden="true">|</span>
+                <a href="Valentines/valentines.html">Valentines</a>
+                <span class="separator" aria-hidden="true">|</span>
+                <a href="Others/others.html">Others</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content" id="mainContent">
+            <header class="main-header">
+                <h1>Welcome</h1>
+            </header>
+            
+            <section class="content-section">
+                <p>
+                    Hello! This website is designed to store repositories of previously made websites for you. I noticed it was
+                    getting kinda a lot, so I have designed something like this in order to help organize and unify them.
+                    Feel free to explore around!
+                </p>
+
+                <p>
+                    Perhaps in the future, should I make more, it will instead link to this website so you can access it anytime, 
+                    without needing to remember links or stuff. Just this one.
+                </p>
+                <ul>
+                    <br>
+                    <li>To go to websites related to "Anniversaries", click the Anniversaries tab.</li>
+                    <br>
+                    <li>To go to websites related to "Birthdays", click the Birthdays tab.</li>
+                    <br>
+                    <li>To go to websites related to "Monthsaries", click the Monthsaries tab.</li>
+                    <br>
+                    <li>To go to websites related to "Valentines", click the Valentines tab.</li>
+                    <br>
+                    <li>To go to other related websites, click the Others tab.</li>
+                    <br>
+                </ul>
+
+                <p>
+                    This page should be, for most of its lifetime, be in developmen .So currently, it is in development.
+                    Tomorrow, it will be still be in development.
+                </p>
+
+                <p>
+                    Anyways, enjoy the calm lavender pallette of the Home page. Tbh, I don't know what else to put here.
+                    Its just home page haha.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

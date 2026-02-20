@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-4: #b9a7bb;
+    --color-3: #616c59;
+    --color-2: #323b36;
+    --color-1: #281c2d;
+}
+
+body {
+    font-family: 'Google Sans Flex', sans-serif;
+    background-color: var(--color-4);
+    color: var(--color-1);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar and hamburger styles removed from root stylesheet —
+   sidebar UI is provided by per-folder CSS (e.g. Valentines/valentines.css).
+   Main content defaults are defined here. */
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 1rem 2rem;
+    transition: padding-left 0.3s ease, padding-right 0.3s ease;
+}
+
+.main-header {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--color-3);
+}
+
+.main-header h1 {
+    font-family: 'Google Sans Flex', monospace;
+    font-size: 3rem;
+    color: var(--color-1);
+    font-weight: 700;
+}
+
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--color-1);
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem 1.25rem;
+    }
+
+    .main-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .content-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Header nav for home page */
+
+.top-header {
+    width: 100%;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1000;
+}
+
+.top-header .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+}
+
+.top-header .brand {
+    font-family: 'Google Sans Flex', monospace;
+    color: var(--color-1);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.top-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-nav a {
+    color: var(--color-1);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.top-nav a:hover {
+    background-color: var(--color-2);
+    transform: translateY(-1px);
+    border-bottom: 3px solid var(--color-1);
+}
+
+/* Separator between header links: Home | Anniversaries | ... */
+.top-nav a + a::before {
+    content: "|";
+    margin: 0 0.6rem;
+    color: var(--color-1);
+    opacity: 0.85;
+}
+
+/* Active state for current page */
+.top-nav a.active {
+    background-color: var(--color-2);
+    color: var(--color-1);
+    border-bottom: 3px solid var(--color-1);
+}
+
+/* Responsive header: wrap into two lines instead of collapsing into a hamburger */
+@media (max-width: 900px) {
+    .top-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .top-nav a { padding: 0.5rem 0.85rem; }
+}
+
+/* No forced margin — header flows naturally, so main content follows */
+.home .main-content {
+    /* Remove the left offset previously reserved for the sidebar */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    padding: 2rem 2rem;
+    padding-top: 1.75rem;
+}
+
+/* (Removed home-page-specific hamburger hide rules — sidebar/hamburger removed from home markup) */
+.separator {
+    display: inline-block;
+    margin: 0 0.6rem;
+    color: var(--color-1);
+    opacity: 0.85;
+    pointer-events: none;
+    user-select: none;
+    font-weight: 500;
+}
+
+/* Active state for current page: stronger contrast */
+.top-nav a.active {
+    background-color: var(--color-1);
+    color: var(--color-4);
+    font-weight: 700;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.08);
+}
+
+/* Make the anchor elements look like buttons */
+.top-nav a {
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+}
+
+/* Start overlay (full-screen) */
+.start-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.32));
+    z-index: 2000;
+    -webkit-backdrop-filter: blur(6px) brightness(0.7);
+    backdrop-filter: blur(6px) brightness(0.7);
+    transition: opacity 280ms ease, visibility 280ms ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.start-card {
+    background: white;
+    color: var(--color-1);
+    width: min(520px, 92%);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.start-card h2 { margin-bottom: 0.75rem; font-size: 1.6rem; }
+
+.start-card label { display:block; margin-top: 0.75rem; font-size: 0.95rem; color: #333; }
+.start-card input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 0.35rem;
+    font-size: 1rem;
+}
+
+.start-card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--color-3);
+    color: var(--color-1);
+    border: none;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.start-error { color: #b00020; margin-top: 0.75rem; min-height: 1.2rem; }
+
+@media (max-width: 520px) {
+    .start-card { padding: 1.25rem; }
+    .start-card h2 { font-size: 1.25rem; }
+}
+
+/* Hidden state for overlay (used when signed in) */
+.start-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

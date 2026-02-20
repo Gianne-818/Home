@@ -1,0 +1,293 @@
+/* Copy of main styles for Birthdays page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-4: #b9a7bb;
+    --color-3: #616c59;
+    --color-2: #323b36;
+    --color-1: #281c2d;
+    --sidebar-width: 280px;
+}
+
+body {
+    font-family: 'Google Sans Flex', sans-serif;
+    background-color: var(--color-4);
+    color: var(--color-1);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.7rem;
+    z-index: 1000;
+    background-color: var(--color-3);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-toggle:hover {
+    background-color: var(--color-2);
+    transform: scale(1.05);
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-1);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.sidebar-toggle.active .hamburger:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.sidebar-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.sidebar-toggle.active .hamburger:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.sidebar-toggle.active {
+    background-color: var(--color-2);
+}
+
+.sidebar-toggle.active .hamburger {
+    background-color: var(--color-3);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--color-3);
+    padding: 2rem 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+.sidebar-header {
+    padding: 0 2rem 2rem;
+    border-bottom: 2px solid var(--color-2);
+    margin-top: 3rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.sidebar-header h2 {
+    font-family: 'Google Sans Flex', monospace;
+    color: var(--color-1);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+}
+
+.nav-link {
+    padding: 1rem 2rem;
+    color: var(--color-1);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: var(--color-2);
+    border-left-color: var(--color-1);
+    padding-left: 2.5rem;
+}
+
+/* Active link styling for current page */
+.nav-link.active {
+    background-color: var(--color-1);
+    color: var(--color-4);
+    font-weight: 700;
+    border-left-color: var(--color-4);
+    padding-left: 2.5rem;
+}
+
+.nav-link span {
+    display: block;
+}
+
+/* Box component for page intro */
+.box {
+    border-left: 8px solid var(--color-2);
+    background: transparent;
+    padding: 20px;
+    border-radius: 0;
+    color: var(--color-1);
+    box-shadow: none;
+    margin-bottom: 1.25rem;
+    height: auto
+}
+
+.box h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+}
+
+.box p { margin: 0; opacity: 0.9; }
+
+/* Buttons container */
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 0.7rem 0.9rem;
+    border-radius: 50px;
+    
+    background: transparent;
+    color: var(--color-2);
+    border: 2px solid var(--color-2);
+    
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease; 
+    position: relative;
+}
+
+.btn:hover {
+    background-color: var(--color-2);
+    color: var(--color-3);
+    transform: translateY(-2px);
+    border-color: var(--color-2); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+
+@media (min-width: 700px) {
+    .buttons { grid-template-columns: 1fr 1fr; }
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 1rem 2rem;
+    transition: margin-left 0.3s ease, padding-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0;
+    padding-left: 6rem;
+}
+
+.main-header {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--color-3);
+}
+
+.main-header h1 {
+    font-family: 'Google Sans Flex', monospace;
+    font-size: 3rem;
+    color: var(--color-1);
+    font-weight: 700;
+}
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--color-1);
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 250px;
+    }
+
+    .sidebar {
+        width: var(--sidebar-width);
+    }
+
+    .main-content {
+        margin-left: 0; 
+        padding: 1rem 2rem;
+    }
+
+    .sidebar-toggle {
+        top: 1rem;
+        left:2rem;
+        padding: 0.6rem;
+    }
+
+    .hamburger {
+        width: 20px;
+        height: 2.5px;
+    }
+
+    .main-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .content-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .sidebar-header {
+        margin-top: 2rem;
+    }
+
+    .sidebar-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .sidebar-toggle.active .hamburger:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .sidebar-toggle.active .hamburger:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+}
